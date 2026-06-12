@@ -1,0 +1,20 @@
+# Dart / Flutter
+.dart_tool/
+.packages
+.pub-cache/
+.pub/
+build/
+pubspec.lock
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# OS
+.DS_Store
+
+# Note: the example's generated icon output (example/assets/supabase_icons/ and
+# example/lib/generated/) is committed so the gallery is runnable as delivered.
+# In a real consuming app you would typically commit these too — they are
+# produced by `dart run supabase_ui:build_icons`.

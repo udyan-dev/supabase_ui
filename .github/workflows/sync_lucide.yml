@@ -1,0 +1,51 @@
+name: Sync Lucide icon names
+
+# Keeps lib/src/icons/supabase_icons.dart in sync with the upstream Lucide set.
+on:
+  schedule:
+    - cron: '0 6 * * 1' # every Monday 06:00 UTC
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: 'Lucide git ref to sync from'
+        required: false
+        default: 'main'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-lucide
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Regenerate icon names
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: dart run tool/generate_icon_names.dart --ref "${{ github.event.inputs.ref || 'main' }}"
+
+      - name: Commit changes
+        run: |
+          if [[ -n "$(git status --porcelain lib/src/icons/supabase_icons.dart)" ]]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add lib/src/icons/supabase_icons.dart
+            git commit -m "chore(icons): sync Lucide icon names"
+            git push
+          else
+            echo "No icon changes."
+          fi
