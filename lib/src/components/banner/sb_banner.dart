@@ -44,32 +44,31 @@ class SbBanner extends StatelessWidget {
   Widget build(BuildContext context) {
     final colors = context.sbColors;
     final accent = _accent(colors);
-    final bg = Color.alphaBlend(accent.withValues(alpha: 0.1), colors.surface);
 
     return SbSurface(
-      color: bg,
-      borderColor: accent.withValues(alpha: 0.2),
+      color: colors.surfaceActive,
       padding: const EdgeInsets.symmetric(
         horizontal: SbSpacing.s16,
         vertical: SbSpacing.s12,
       ),
-      child: Row(
+      child: Column(
+        spacing: SbSpacing.s8,
         children: <Widget>[
-          Expanded(
-            child: SbText(message, variant: SbTextVariant.bodyStrong),
+          SbText(message, variant: SbTextVariant.bodyStrong),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            spacing: SbSpacing.s16,
+            children: [
+              if (action != null) ...<Widget>[action!],
+              if (onDismiss != null) ...<Widget>[
+                SbInteraction(
+                  onTap: onDismiss,
+                  builder: (context, _, _) =>
+                      _Cross(color: colors.textTertiary),
+                ),
+              ],
+            ],
           ),
-          if (action != null) ...<Widget>[
-            const SizedBox(width: SbSpacing.s12),
-            action!,
-          ],
-          if (onDismiss != null) ...<Widget>[
-            const SizedBox(width: SbSpacing.s8),
-            SbInteraction(
-              onTap: onDismiss,
-              builder: (context, _, _) =>
-                  _Cross(color: colors.textTertiary),
-            ),
-          ],
         ],
       ),
     );
@@ -83,10 +82,10 @@ class _Cross extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => SizedBox(
-        width: 12,
-        height: 12,
-        child: CustomPaint(painter: _CrossPainter(color)),
-      );
+    width: 12,
+    height: 12,
+    child: CustomPaint(painter: _CrossPainter(color)),
+  );
 }
 
 class _CrossPainter extends CustomPainter {

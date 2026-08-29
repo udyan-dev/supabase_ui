@@ -5,7 +5,6 @@ import '../../primitives/sb_surface.dart';
 import '../../primitives/sb_text.dart';
 import '../../theme/sb_theme_extensions.dart';
 import '../../tokens/sb_elevation.dart';
-import '../../tokens/sb_radius.dart';
 import '../../tokens/sb_spacing.dart';
 import '../../utils/context_extensions.dart';
 
@@ -27,16 +26,12 @@ void showSbSnackbar(
   messenger.showSnackBar(
     SnackBar(
       duration: duration,
-      behavior: SnackBarBehavior.floating,
+      behavior: SnackBarBehavior.fixed,
       backgroundColor: Colors.transparent,
       elevation: 0,
       padding: EdgeInsets.zero,
-      margin: const EdgeInsets.all(SbSpacing.s16),
-      shape: const RoundedRectangleBorder(borderRadius: SbRadius.all8),
       content: SbSurface(
-        // Inverted high-contrast bar (classic snackbar look).
         color: colors.textPrimary,
-        borderRadius: SbRadius.all8,
         boxShadow: SbElevation.e3,
         padding: const EdgeInsets.symmetric(
           horizontal: SbSpacing.s16,

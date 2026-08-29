@@ -1,4 +1,4 @@
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 
 import '../../primitives/sb_surface.dart';
 import '../../primitives/sb_text.dart';
@@ -7,89 +7,40 @@ import '../../tokens/sb_radius.dart';
 import '../../tokens/sb_spacing.dart';
 import '../../utils/context_extensions.dart';
 
-/// Shows a token-styled bottom sheet that slides up from the bottom edge with a
-/// scrim — the standard mobile modal surface. Returns the value the sheet is
-/// popped with.
+const double _maxHeightFraction = 0.75;
+
 Future<T?> showSbSheet<T>({
   required BuildContext context,
   required WidgetBuilder builder,
   bool barrierDismissible = true,
 }) {
-  final overlayColor = context.sb.colors.overlay;
-  return Navigator.of(context, rootNavigator: true).push<T>(
-    _SbSheetRoute<T>(
-      builder: builder,
-      barrierDismissible: barrierDismissible,
-      barrierColor: overlayColor,
+  return showModalBottomSheet<T>(
+    context: context,
+    useRootNavigator: true,
+    isScrollControlled: true,
+    useSafeArea: true,
+    isDismissible: barrierDismissible,
+    enableDrag: barrierDismissible,
+    backgroundColor: const Color(0x00000000),
+    barrierColor: context.sb.colors.overlay,
+    elevation: 0,
+    clipBehavior: Clip.none,
+    constraints: BoxConstraints(
+      maxHeight: MediaQuery.sizeOf(context).height * _maxHeightFraction,
     ),
-  );
-}
-
-class _SbSheetRoute<T> extends PopupRoute<T> {
-  _SbSheetRoute({
-    required this.builder,
-    required this.barrierDismissible,
-    required Color barrierColor,
-  }) : _barrierColor = barrierColor;
-  // ignore_for_file: prefer_initializing_formals
-
-  final WidgetBuilder builder;
-
-  @override
-  final bool barrierDismissible;
-
-  final Color _barrierColor;
-
-  @override
-  Color get barrierColor => _barrierColor;
-
-  @override
-  String? get barrierLabel => 'Dismiss';
-
-  @override
-  Duration get transitionDuration => SbMotion.panel;
-
-  @override
-  Widget buildPage(
-    BuildContext context,
-    Animation<double> animation,
-    Animation<double> secondaryAnimation,
-  ) {
-    return Align(
-      alignment: Alignment.bottomCenter,
-      child: Padding(
+    builder: (BuildContext context) {
+      return AnimatedPadding(
         padding: EdgeInsets.only(
           bottom: MediaQuery.viewInsetsOf(context).bottom,
         ),
+        duration: SbMotion.slow,
+        curve: SbMotion.standard,
         child: Builder(builder: builder),
-      ),
-    );
-  }
-
-  @override
-  Widget buildTransitions(
-    BuildContext context,
-    Animation<double> animation,
-    Animation<double> secondaryAnimation,
-    Widget child,
-  ) {
-    // Supabase `panelSlide` easing for the slide-up.
-    final curved = CurvedAnimation(
-      parent: animation,
-      curve: SbMotion.emphasized,
-    );
-    return SlideTransition(
-      position: Tween<Offset>(
-        begin: const Offset(0, 1),
-        end: Offset.zero,
-      ).animate(curved),
-      child: child,
-    );
-  }
+      );
+    },
+  );
 }
 
-/// The default sheet container: a top-rounded surface with a drag handle, an
-/// optional [title], and [child] content. Use inside [showSbSheet]'s builder.
 class SbSheet extends StatelessWidget {
   const SbSheet({super.key, this.title, required this.child, this.textAlign});
 
@@ -126,7 +77,6 @@ class SbSheet extends StatelessWidget {
                 variant: SbTextVariant.title,
                 align: textAlign ?? TextAlign.center,
               ),
-            // Long content scrolls natively within the sheet.
             Flexible(child: SingleChildScrollView(child: child)),
           ],
         ),

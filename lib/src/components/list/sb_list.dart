@@ -13,7 +13,9 @@ import 'sb_list_tile.dart';
 /// - [SbList.builder]: lazily build [itemCount] rows for long/virtualized lists.
 ///
 /// [shrinkWrap] (default true) lets the list size to its content inside another
-/// scrollable; set it false with a bounded height to scroll natively.
+/// scrollable, and defaults [physics] to [NeverScrollableScrollPhysics] so the
+/// outer scrollable owns the gesture; set it false with a bounded height to
+/// scroll natively.
 ///
 /// [borderRadius] rounds the entire list container via a single [ClipRRect],
 /// and its top/bottom corners are mirrored onto the first/last tiles via
@@ -88,7 +90,8 @@ class SbList extends StatelessWidget {
     Widget list = ListView.separated(
       controller: controller,
       shrinkWrap: shrinkWrap,
-      physics: physics,
+      physics:
+          physics ?? (shrinkWrap ? const NeverScrollableScrollPhysics() : null),
       padding: EdgeInsets.zero,
       itemCount: count,
       itemBuilder: (context, index) {

@@ -4,6 +4,7 @@ import '../../primitives/sb_interaction.dart';
 import '../../primitives/sb_surface.dart';
 import '../../primitives/sb_text.dart';
 import '../../tokens/sb_motion.dart';
+import '../../tokens/sb_spacing.dart';
 import '../../utils/context_extensions.dart';
 import 'sb_button_style.dart';
 
@@ -24,6 +25,7 @@ class SbButton extends StatelessWidget {
     this.trailing,
     this.loading = false,
     this.fullWidth = false,
+    this.isExpanded = false,
   });
 
   final String label;
@@ -37,6 +39,7 @@ class SbButton extends StatelessWidget {
 
   final bool loading;
   final bool fullWidth;
+  final bool isExpanded;
 
   bool get _enabled => onPressed != null && !loading;
 
@@ -69,6 +72,7 @@ class SbButton extends StatelessWidget {
                   label: label,
                   leading: leading,
                   trailing: trailing,
+                  isExpanded: isExpanded,
                 ),
               );
 
@@ -90,28 +94,55 @@ class SbButton extends StatelessWidget {
 }
 
 class _ButtonRow extends StatelessWidget {
-  const _ButtonRow({required this.label, this.leading, this.trailing});
+  const _ButtonRow({
+    required this.label,
+    this.leading,
+    this.trailing,
+    this.isExpanded = false,
+  });
 
   final String label;
   final Widget? leading;
   final Widget? trailing;
+  final bool isExpanded;
 
   @override
   Widget build(BuildContext context) {
+    if (isExpanded) {
+      return Row(
+        mainAxisSize: MainAxisSize.min,
+        spacing: SbSpacing.s8,
+        children: <Widget>[
+          if (leading != null) ...[leading!],
+          if (label.isNotEmpty)
+            Expanded(
+              child: SbText(
+                label,
+                variant: SbTextVariant.bodyStrong,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ),
+          if (trailing != null) ...[trailing!],
+        ],
+      );
+    }
     return Row(
       mainAxisSize: MainAxisSize.min,
+      spacing: SbSpacing.s8,
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        if (leading != null) ...[leading!, const SizedBox(width: 8)],
-        Flexible(
-          child: SbText(
-            label,
-            variant: SbTextVariant.bodyStrong,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
+        if (leading != null) ...[leading!],
+        if (label.isNotEmpty)
+          Flexible(
+            child: SbText(
+              label,
+              variant: SbTextVariant.bodyStrong,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+            ),
           ),
-        ),
-        if (trailing != null) ...[const SizedBox(width: 8), trailing!],
+        if (trailing != null) ...[trailing!],
       ],
     );
   }

@@ -177,10 +177,8 @@ class _SbTabsState extends State<SbTabs> {
     return SingleChildScrollView(
       controller: _scrollController,
       scrollDirection: Axis.horizontal,
-      padding: const EdgeInsets.symmetric(horizontal: SbSpacing.s16),
       child: Row(
         mainAxisSize: MainAxisSize.min,
-        spacing: SbSpacing.s8,
         children: <Widget>[
           for (var i = 0; i < widget.tabs.length; i++)
             _TabButton(
@@ -188,6 +186,7 @@ class _SbTabsState extends State<SbTabs> {
               tab: widget.tabs[i],
               selected: i == _index,
               onTap: () => _select(i),
+              isScrollable: true,
             ),
         ],
       ),
@@ -234,11 +233,13 @@ class _TabButton extends StatelessWidget {
     required this.tab,
     required this.selected,
     required this.onTap,
+    this.isScrollable = false,
   });
 
   final SbTab tab;
   final bool selected;
   final VoidCallback onTap;
+  final bool isScrollable;
 
   @override
   Widget build(BuildContext context) {
@@ -258,18 +259,16 @@ class _TabButton extends StatelessWidget {
             ),
           ),
           child: Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: SbSpacing.s8,
-              vertical: SbSpacing.s12,
+            padding: EdgeInsets.symmetric(
+              vertical: SbSpacing.s8,
+              horizontal: isScrollable ? SbSpacing.s16 : 0,
             ),
             child: Row(
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
+              spacing: SbSpacing.s8,
               children: <Widget>[
-                if (tab.icon != null) ...[
-                  tab.icon!,
-                  const SizedBox(width: SbSpacing.s8),
-                ],
+                if (tab.icon != null) ...[tab.icon!],
                 SbText(
                   tab.label,
                   variant: SbTextVariant.bodyStrong,

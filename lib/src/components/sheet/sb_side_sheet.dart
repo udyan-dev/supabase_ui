@@ -94,11 +94,18 @@ class _SbSideSheetRoute<T> extends PopupRoute<T> {
 /// Default side-sheet container: a full-height surface (default 86% width,
 /// capped at 420) with an optional [title] and [child] content.
 class SbSideSheet extends StatelessWidget {
-  const SbSideSheet({super.key, this.title, required this.child, this.width});
+  const SbSideSheet({
+    super.key,
+    this.title,
+    required this.child,
+    this.width,
+    this.leading,
+  });
 
   final String? title;
   final Widget child;
   final double? width;
+  final Widget? leading;
 
   @override
   Widget build(BuildContext context) {
@@ -116,10 +123,16 @@ class SbSideSheet extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              if (title != null) ...<Widget>[
-                SbText(title!, variant: SbTextVariant.title),
-                const SizedBox(height: SbSpacing.s16),
-              ],
+              Row(
+                spacing: SbSpacing.s16,
+                children: [
+                  ?leading,
+                  if (title != null) ...<Widget>[
+                    SbText(title!, variant: SbTextVariant.heading),
+                    const SizedBox(height: SbSpacing.s16),
+                  ],
+                ],
+              ),
               Expanded(child: child),
             ],
           ),

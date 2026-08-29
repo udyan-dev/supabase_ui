@@ -44,21 +44,7 @@ flutter:
       fonts:
         - asset: assets/fonts/CustomFont-Book.ttf
           weight: 400
-        - asset: assets/fonts/CustomFont-BookItalic.ttf
-          weight: 400
-          style: italic
         - asset: assets/fonts/CustomFont-Medium.ttf
           weight: 500
         - asset: assets/fonts/CustomFont-Bold.ttf
           weight: 700
-        - asset: assets/fonts/CustomFont-BoldItalic.ttf
-          weight: 700
-          style: italic
-        - asset: assets/fonts/CustomFont-Black.ttf
-          weight: 800
-        - asset: assets/fonts/CustomFont-BlackItalic.ttf
-          weight: 800
-          style: italic
-    - family: Source Code Pro
-      fonts:
-        - asset: assets/fonts/SourceCodePro.ttf

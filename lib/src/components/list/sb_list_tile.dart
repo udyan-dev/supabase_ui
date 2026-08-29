@@ -44,6 +44,7 @@ class SbListTile extends StatelessWidget {
     this.leading,
     this.trailing,
     this.onTap,
+    this.onLongPress,
     this.borderRadius = BorderRadius.zero,
     this.padding,
     this.isSelected = false,
@@ -54,6 +55,7 @@ class SbListTile extends StatelessWidget {
   final Widget? leading;
   final Widget? trailing;
   final VoidCallback? onTap;
+  final VoidCallback? onLongPress;
   final EdgeInsets? padding;
   final bool isSelected;
 
@@ -68,7 +70,8 @@ class SbListTile extends StatelessWidget {
 
     return SbInteraction(
       onTap: onTap,
-      enabled: onTap != null,
+      onLongPress: onLongPress,
+      enabled: onTap != null || onLongPress != null,
       builder: (context, states, _) {
         final hovered = states.contains(WidgetState.hovered);
 
@@ -86,11 +89,9 @@ class SbListTile extends StatelessWidget {
                 vertical: SbSpacing.s12,
               ),
           child: Row(
+            spacing: SbSpacing.s12,
             children: <Widget>[
-              if (leading != null) ...[
-                leading!,
-                const SizedBox(width: SbSpacing.s12),
-              ],
+              ?leading,
               Expanded(
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
@@ -109,10 +110,7 @@ class SbListTile extends StatelessWidget {
                   ],
                 ),
               ),
-              if (trailing != null) ...[
-                const SizedBox(width: SbSpacing.s12),
-                trailing!,
-              ],
+              ?trailing,
             ],
           ),
         );
