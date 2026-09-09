@@ -32,19 +32,7 @@ executables:
   build_icons: build_icons
 
 flutter:
-  # The package bundles Supabase's actual Studio type stack: CustomFont
-  # (Supabase's `--font-custom`, used by `.font-sans`/`body`) for all UI text
-  # and Source Code Pro (`--font-source-code-pro`) for monospace/code. Faces and
-  # weights mirror apps/studio/fonts/index.ts (Book 400, Medium 500, Bold 700,
-  # Black 800, + italics). Both families are bound in SbAppTheme, so consumers
-  # get them automatically. SbTypography references them with the
-  # `packages/supabase_ui/` prefix.
   fonts:
-    - family: CustomFont
+    - family: Bricolage Grotesque
       fonts:
-        - asset: assets/fonts/CustomFont-Book.ttf
-          weight: 400
-        - asset: assets/fonts/CustomFont-Medium.ttf
-          weight: 500
-        - asset: assets/fonts/CustomFont-Bold.ttf
-          weight: 700
+        - asset: assets/fonts/BricolageGrotesque-Variable.ttf

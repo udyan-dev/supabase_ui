@@ -15,6 +15,7 @@ abstract final class SbSpacing {
   static const double s20 = 20;
   static const double s24 = 24;
   static const double s32 = 32;
+  static const double s36 = 36;
   static const double s40 = 40;
   static const double s48 = 48;
   static const double s64 = 64;

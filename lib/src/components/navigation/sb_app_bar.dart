@@ -19,6 +19,7 @@ class SbAppBar extends StatelessWidget {
     this.showBorder = true,
     this.padding,
     this.showTitle = true,
+    this.backgroundColor,
   });
 
   final String? title;
@@ -29,6 +30,7 @@ class SbAppBar extends StatelessWidget {
   final Widget? titleWidget;
   final EdgeInsets? padding;
   final bool showTitle;
+  final Color? backgroundColor;
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +44,7 @@ class SbAppBar extends StatelessWidget {
       child: SizedBox(
         height: kToolbarHeight,
         child: SbSurface(
-          color: colors.background,
+          color: backgroundColor ?? colors.background,
           border: showBorder
               ? Border(bottom: BorderSide(color: colors.border))
               : null,

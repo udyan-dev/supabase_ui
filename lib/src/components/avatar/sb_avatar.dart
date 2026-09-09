@@ -62,9 +62,8 @@ class SbAvatar extends StatelessWidget {
     final fallback = Center(
       child: Text(
         _initials,
-        style: SbTypography.caption.copyWith(
+        style: SbTypography.captionStrong.copyWith(
           color: colors.textSecondary,
-          fontWeight: FontWeight.w500, // CustomFont Medium (no 600 face)
           fontSize: dim * 0.4,
           height: 1,
         ),

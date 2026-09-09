@@ -2,7 +2,6 @@ import 'package:flutter/widgets.dart';
 
 import '../../primitives/sb_interaction.dart';
 import '../../primitives/sb_surface.dart';
-import '../../primitives/sb_text.dart';
 import '../../tokens/sb_motion.dart';
 import '../../tokens/sb_spacing.dart';
 import '../../utils/context_extensions.dart';
@@ -108,36 +107,17 @@ class _ButtonRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (isExpanded) {
-      return Row(
-        mainAxisSize: MainAxisSize.min,
-        spacing: SbSpacing.s8,
-        children: <Widget>[
-          if (leading != null) ...[leading!],
-          if (label.isNotEmpty)
-            Expanded(
-              child: SbText(
-                label,
-                variant: SbTextVariant.bodyStrong,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-              ),
-            ),
-          if (trailing != null) ...[trailing!],
-        ],
-      );
-    }
     return Row(
       mainAxisSize: MainAxisSize.min,
       spacing: SbSpacing.s8,
-      mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         if (leading != null) ...[leading!],
         if (label.isNotEmpty)
           Flexible(
-            child: SbText(
+            fit: isExpanded ? FlexFit.tight : FlexFit.loose,
+            child: Text(
               label,
-              variant: SbTextVariant.bodyStrong,
+              style: DefaultTextStyle.of(context).style,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
             ),

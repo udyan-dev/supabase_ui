@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 
+import '../../../supabase_ui.dart';
 import '../../theme/sb_theme_extensions.dart';
 import '../../tokens/sb_radius.dart';
 import '../../tokens/sb_spacing.dart';
@@ -29,13 +30,19 @@ extension SbButtonSizeMetrics on SbButtonSize {
     switch (this) {
       case SbButtonSize.sm:
         return const EdgeInsets.symmetric(
-            horizontal: SbSpacing.s12, vertical: SbSpacing.s8);
+          horizontal: SbSpacing.s12,
+          vertical: SbSpacing.s8,
+        );
       case SbButtonSize.md:
         return const EdgeInsets.symmetric(
-            horizontal: SbSpacing.s16, vertical: SbSpacing.s12);
+          horizontal: SbSpacing.s16,
+          vertical: SbSpacing.s12,
+        );
       case SbButtonSize.lg:
         return const EdgeInsets.symmetric(
-            horizontal: SbSpacing.s20, vertical: SbSpacing.s16);
+          horizontal: SbSpacing.s20,
+          vertical: SbSpacing.s16,
+        );
     }
   }
 
@@ -64,7 +71,7 @@ extension SbButtonSizeMetrics on SbButtonSize {
   TextStyle get textStyle {
     switch (this) {
       case SbButtonSize.sm:
-        return SbTypography.caption.copyWith(fontWeight: FontWeight.w500);
+        return SbTypography.captionStrong;
       case SbButtonSize.md:
         return SbTypography.bodyStrong;
       case SbButtonSize.lg:
@@ -115,7 +122,7 @@ SbButtonVisual resolveButtonVisual({
         background: pressed
             ? colors.primaryActive
             : (hovered ? colors.primaryHover : colors.primary),
-        foreground: colors.onPrimary,
+        foreground: SbColors.iconLight,
         borderColor: null,
       );
     case SbButtonVariant.destructive:
@@ -123,8 +130,11 @@ SbButtonVisual resolveButtonVisual({
         background: pressed
             ? Color.alphaBlend(const Color(0x33000000), colors.destructive)
             : (hovered
-                ? Color.alphaBlend(const Color(0x1A000000), colors.destructive)
-                : colors.destructive),
+                  ? Color.alphaBlend(
+                      const Color(0x1A000000),
+                      colors.destructive,
+                    )
+                  : colors.destructive),
         foreground: colors.onSemantic,
         borderColor: null,
       );

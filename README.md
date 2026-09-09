@@ -37,10 +37,10 @@
   style computation.
 - **One `ThemeExtension`** — a single `SbTheme` drives light and dark; components
   react to theme changes instantly with no hardcoded colors.
-- **Supabase's type stack, bundled** — CustomFont (Circular) for UI text
-  (`--font-custom`, from `apps/studio/fonts`) and Source Code Pro for mono/code
-  (`--font-source-code-pro`), shipped and wired into the theme; consumers get
-  them automatically, no setup.
+- **Type bundled as one variable file** — Bricolage Grotesque (axes `opsz`,
+  `wdth`, `wght`) ships with the package and is wired into the theme; consumers
+  get it automatically, no setup — and swap in their own with
+  `SbTypography.use(...)`.
 - **Lean icon pipeline** — the package ships icon *names* only; a CLI fetches and
   compiles just the icons you reference. Nothing unused is bundled.
 - **Multi-platform** — Android, iOS, Web, macOS, Windows, Linux.
@@ -55,10 +55,37 @@ dependencies:
   vector_graphics: ^1.2.2
 ```
 
-The package **bundles CustomFont** (Supabase's Circular, the exact faces from
-`apps/studio/fonts`) for UI text and **Source Code Pro** for mono/code, and
-applies them through `SbAppTheme` — so text renders in Supabase's real typefaces
-with no app-side font setup.
+The package **bundles Bricolage Grotesque** as a single variable file and
+applies it through `SbAppTheme` — so text renders in the intended typeface with
+no app-side font setup. No monospace face is bundled: `SbText.mono` falls back
+to the platform default until you pass a `monoFamily`.
+
+To use a different family, declare it in your app's `pubspec.yaml` and bind it
+once before `runApp`:
+
+```yaml
+flutter:
+  fonts:
+    - family: Inter
+      fonts:
+        - asset: assets/fonts/Inter-Variable.ttf
+```
+
+```dart
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SbTypography.use(fontFamily: 'Inter');
+  runApp(const MyApp());
+}
+```
+
+`use` rebuilds the base styles in place, so `SbAppTheme` and every component
+pick the family up with no per-build cost; omitting an argument restores the
+bundled family. Each UI style pins the `wght` axis to its weight and the `opsz`
+axis to its size, so a variable file renders the intended instance instead of
+its default one. `fontWeight` is set alongside, and axes a font lacks are
+ignored, so static families work unchanged. A family from a package needs the
+`packages/<name>/` prefix.
 
 ## Quick start
 

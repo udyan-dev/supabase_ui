@@ -15,10 +15,11 @@ own design tokens and fonts.
   **Elevation**, **Motion** — durations and the exact cubic-bezier easings from
   their CSS (overlay `(.16,1,.3,1)`, panel `(.87,0,.13,1)`).
 
-### Fonts (bundled from `apps/studio/fonts`)
-- **CustomFont** (Circular) for UI text — the seven faces (Book 400, Medium 500,
-  Bold 700, Black 800 + italics), transcoded from the repo's woff2 to TTF.
-- **Source Code Pro** for monospace/code.
+### Fonts (bundled)
+- **Bricolage Grotesque** for UI text — one variable file (axes `opsz`, `wdth`,
+  `wght`) covering the whole weight range, so a single asset serves every style.
+- No monospace face is bundled; `SbText.mono` uses the platform default until an
+  app supplies one via `SbTypography.use(monoFamily: ...)`.
 
 ### Theme
 - Single `ThemeExtension` (`SbTheme`); `SbAppTheme.light()/dark()`; ergonomic

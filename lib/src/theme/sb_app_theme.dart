@@ -28,6 +28,7 @@ abstract final class SbAppTheme {
       useMaterial3: true,
       brightness: brightness,
       fontFamily: SbTypography.fontFamily,
+      textTheme: _textTheme,
       scaffoldBackgroundColor: colors.background,
       canvasColor: colors.background,
       // Keep Material's ColorScheme roughly aligned so any stray Material
@@ -42,4 +43,22 @@ abstract final class SbAppTheme {
       extensions: <ThemeExtension<dynamic>>[sb],
     );
   }
+
+  static TextTheme get _textTheme => TextTheme(
+    displayLarge: SbTypography.display,
+    displayMedium: SbTypography.display,
+    displaySmall: SbTypography.heading,
+    headlineLarge: SbTypography.heading,
+    headlineMedium: SbTypography.heading,
+    headlineSmall: SbTypography.title,
+    titleLarge: SbTypography.title,
+    titleMedium: SbTypography.bodyStrong,
+    titleSmall: SbTypography.bodyStrong,
+    bodyLarge: SbTypography.body,
+    bodyMedium: SbTypography.body,
+    bodySmall: SbTypography.caption,
+    labelLarge: SbTypography.bodyStrong,
+    labelMedium: SbTypography.captionStrong,
+    labelSmall: SbTypography.caption,
+  );
 }

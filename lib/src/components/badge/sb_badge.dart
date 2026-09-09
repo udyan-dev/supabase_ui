@@ -65,9 +65,8 @@ class SbBadge extends StatelessWidget {
           ],
           Text(
             label,
-            style: SbTypography.caption.copyWith(
+            style: SbTypography.captionStrong.copyWith(
               color: accent,
-              fontWeight: FontWeight.w500,
               fontSize: isSm ? 11 : 12,
               height: 1,
             ),

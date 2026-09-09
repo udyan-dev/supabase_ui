@@ -1,80 +1,69 @@
 import 'package:flutter/painting.dart';
 
-/// Type scale — sizes, weights, and line-heights from Supabase's Tailwind type
-/// scale (`--text-*` / `--leading-*` / `--font-weight-*`).
-///
-/// | style       | size | line-height        | weight |
-/// |-------------|------|--------------------|--------|
-/// | display     | 30   | 36 (text-3xl)      | 700    |
-/// | heading     | 24   | 32 (text-2xl)      | 700    |
-/// | title       | 18   | 28 (text-lg)       | 500    |
-/// | body        | 14   | 20 (text-sm)       | 400    |
-/// | bodyStrong  | 14   | 20                 | 500    |
-/// | caption     | 12   | 16 (text-xs)       | 400    |
-/// | mono        | 14   | 20                 | 400    |
-///
-/// Weights are chosen from CustomFont's available faces (400/500/700/800);
-/// CustomFont ships no 600, matching Supabase. Color-less base [TextStyle]s;
-/// the theme layer applies the text color role.
+/// The type scale. Styles are mutable statics so [use] can rebind the family
+/// once at startup and have every widget pick it up with no per-build cost.
 abstract final class SbTypography {
   const SbTypography._();
 
-  /// UI text — Supabase Studio's `--font-custom` (CustomFont / Circular),
-  /// bundled and exported by this package, referenced with the package prefix.
-  static const String fontFamily = 'packages/supabase_ui/CustomFont';
+  /// The variable family bundled with this package (axes: `opsz`, `wdth`,
+  /// `wght`). Package-bundled families need the `packages/<name>/` prefix.
+  static const String bundledFontFamily =
+      'packages/supabase_ui/Bricolage Grotesque';
 
-  /// Monospace/code — Supabase's `--font-source-code-pro`. Bundled here.
-  static const String monoFamily = 'packages/supabase_ui/Source Code Pro';
+  static String fontFamily = bundledFontFamily;
 
-  // Tailwind line-heights are unitless ratios (px line-height ÷ px font-size).
-  static const TextStyle display = TextStyle(
+  /// Family used by [mono]. No monospace face is bundled, so this defaults to
+  /// `null` (the platform default) until an app supplies one via [use].
+  static String? monoFamily;
+
+  static TextStyle display = _ui(30, 1.2, 700, -0.5);
+  static TextStyle heading = _ui(24, 1.3333, 700, -0.25);
+  static TextStyle title = _ui(18, 1.5556, 500);
+  static TextStyle body = _ui(14, 1.4286, 400);
+  static TextStyle bodyStrong = _ui(14, 1.4286, 500);
+  static TextStyle caption = _ui(12, 1.3333, 400, 0.1);
+  static TextStyle captionStrong = _ui(12, 1.3333, 500, 0.1);
+  static TextStyle mono = _mono();
+
+  /// Rebinds the families and rebuilds the scale in place. Omitting an
+  /// argument restores that family's default.
+  static void use({String? fontFamily, String? monoFamily}) {
+    SbTypography.fontFamily = fontFamily ?? bundledFontFamily;
+    SbTypography.monoFamily = monoFamily;
+
+    display = _ui(30, 1.2, 700, -0.5);
+    heading = _ui(24, 1.3333, 700, -0.25);
+    title = _ui(18, 1.5556, 500);
+    body = _ui(14, 1.4286, 400);
+    bodyStrong = _ui(14, 1.4286, 500);
+    caption = _ui(12, 1.3333, 400, 0.1);
+    captionStrong = _ui(12, 1.3333, 500, 0.1);
+    mono = _mono();
+  }
+
+  /// Pins the `wght` and `opsz` axes so a variable file renders the intended
+  /// instance instead of its default one; `fontWeight` covers static families,
+  /// and axes a font lacks are ignored.
+  static TextStyle _ui(
+    double size,
+    double height,
+    int weight, [
+    double? letterSpacing,
+  ]) => TextStyle(
     fontFamily: fontFamily,
-    fontSize: 30, // text-3xl
-    height: 1.2, // 36/30
-    fontWeight: FontWeight.w700,
-    letterSpacing: -0.5,
+    fontSize: size,
+    height: height,
+    fontWeight: FontWeight.values[weight ~/ 100 - 1],
+    fontVariations: <FontVariation>[
+      FontVariation('opsz', size),
+      FontVariation('wght', weight.toDouble()),
+    ],
+    letterSpacing: letterSpacing,
   );
 
-  static const TextStyle heading = TextStyle(
-    fontFamily: fontFamily,
-    fontSize: 24, // text-2xl
-    height: 1.3333, // 32/24
-    fontWeight: FontWeight.w700,
-    letterSpacing: -0.25,
-  );
-
-  static const TextStyle title = TextStyle(
-    fontFamily: fontFamily,
-    fontSize: 18, // text-lg
-    height: 1.5556, // 28/18
-    fontWeight: FontWeight.w500,
-  );
-
-  static const TextStyle body = TextStyle(
-    fontFamily: fontFamily,
-    fontSize: 14, // text-sm
-    height: 1.4286, // 20/14
-    fontWeight: FontWeight.w400,
-  );
-
-  static const TextStyle bodyStrong = TextStyle(
-    fontFamily: fontFamily,
-    fontSize: 14,
-    height: 1.4286,
-    fontWeight: FontWeight.w500,
-  );
-
-  static const TextStyle caption = TextStyle(
-    fontFamily: fontFamily,
-    fontSize: 12, // text-xs
-    height: 1.3333, // 16/12
-    fontWeight: FontWeight.w400,
-    letterSpacing: 0.1,
-  );
-
-  static const TextStyle mono = TextStyle(
+  static TextStyle _mono() => TextStyle(
     fontFamily: monoFamily,
-    fontSize: 14, // text-sm
+    fontSize: 14,
     height: 1.4286,
     fontWeight: FontWeight.w400,
   );
