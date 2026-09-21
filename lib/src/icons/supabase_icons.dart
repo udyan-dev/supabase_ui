@@ -6,7 +6,7 @@
 // Contains the name of every Lucide icon. No SVG/asset data is bundled — these
 // strings are resolved to `.vec` assets app-side by `dart run supabase_ui:build_icons`.
 
-/// Strongly-typed names for every Lucide icon (1847 total).
+/// Strongly-typed names for every Lucide icon (1853 total).
 abstract final class SupabaseIcons {
   const SupabaseIcons._();
 
@@ -253,6 +253,7 @@ abstract final class SupabaseIcons {
   static const String briefcaseBusiness = 'briefcase-business';
   static const String briefcaseConveyorBelt = 'briefcase-conveyor-belt';
   static const String briefcaseMedical = 'briefcase-medical';
+  static const String briefcasePlus = 'briefcase-plus';
   static const String bringToFront = 'bring-to-front';
   static const String broccoli = 'broccoli';
   static const String broom = 'broom';
@@ -957,7 +958,10 @@ abstract final class SupabaseIcons {
   static const String lightbulb = 'lightbulb';
   static const String lightbulbOff = 'lightbulb-off';
   static const String lighthouse = 'lighthouse';
+  static const String lineDotBottomVertical = 'line-dot-bottom-vertical';
+  static const String lineDotLeftHorizontal = 'line-dot-left-horizontal';
   static const String lineDotRightHorizontal = 'line-dot-right-horizontal';
+  static const String lineDotTopVertical = 'line-dot-top-vertical';
   static const String lineSquiggle = 'line-squiggle';
   static const String lineStyle = 'line-style';
   static const String link = 'link';
@@ -1529,6 +1533,7 @@ abstract final class SupabaseIcons {
   static const String squareDashedBottomCode = 'square-dashed-bottom-code';
   static const String squareDashedKanban = 'square-dashed-kanban';
   static const String squareDashedMousePointer = 'square-dashed-mouse-pointer';
+  static const String squareDashedPlus = 'square-dashed-plus';
   static const String squareDashedText = 'square-dashed-text';
   static const String squareDashedTopSolid = 'square-dashed-top-solid';
   static const String squareDashedX = 'square-dashed-x';
@@ -1561,6 +1566,7 @@ abstract final class SupabaseIcons {
   static const String squareScissors = 'square-scissors';
   static const String squareSigma = 'square-sigma';
   static const String squareSlash = 'square-slash';
+  static const String squareSparkles = 'square-sparkles';
   static const String squareSplitHorizontal = 'square-split-horizontal';
   static const String squareSplitVertical = 'square-split-vertical';
   static const String squareSquare = 'square-square';
