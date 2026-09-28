@@ -6,7 +6,7 @@
 // Contains the name of every Lucide icon. No SVG/asset data is bundled — these
 // strings are resolved to `.vec` assets app-side by `dart run supabase_ui:build_icons`.
 
-/// Strongly-typed names for every Lucide icon (1853 total).
+/// Strongly-typed names for every Lucide icon (1856 total).
 abstract final class SupabaseIcons {
   const SupabaseIcons._();
 
@@ -141,6 +141,7 @@ abstract final class SupabaseIcons {
   static const String ban = 'ban';
   static const String banana = 'banana';
   static const String bandage = 'bandage';
+  static const String bangladeshiTaka = 'bangladeshi-taka';
   static const String banknote = 'banknote';
   static const String banknoteArrowDown = 'banknote-arrow-down';
   static const String banknoteArrowUp = 'banknote-arrow-up';
@@ -876,6 +877,7 @@ abstract final class SupabaseIcons {
   static const String hourglass = 'hourglass';
   static const String hourglassCog = 'hourglass-cog';
   static const String house = 'house';
+  static const String houseCog = 'house-cog';
   static const String houseHeart = 'house-heart';
   static const String housePlug = 'house-plug';
   static const String housePlus = 'house-plus';
@@ -951,6 +953,7 @@ abstract final class SupabaseIcons {
   static const String lectern = 'lectern';
   static const String lensConcave = 'lens-concave';
   static const String lensConvex = 'lens-convex';
+  static const String letters = 'letters';
   static const String libraryIcon = 'library';
   static const String libraryBig = 'library-big';
   static const String lifeBuoy = 'life-buoy';
