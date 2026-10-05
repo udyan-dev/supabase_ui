@@ -6,7 +6,7 @@
 // Contains the name of every Lucide icon. No SVG/asset data is bundled — these
 // strings are resolved to `.vec` assets app-side by `dart run supabase_ui:build_icons`.
 
-/// Strongly-typed names for every Lucide icon (1856 total).
+/// Strongly-typed names for every Lucide icon (1866 total).
 abstract final class SupabaseIcons {
   const SupabaseIcons._();
 
@@ -62,6 +62,7 @@ abstract final class SupabaseIcons {
   static const String archiveRestore = 'archive-restore';
   static const String archiveX = 'archive-x';
   static const String armchair = 'armchair';
+  static const String armenianDram = 'armenian-dram';
   static const String arrowBigDown = 'arrow-big-down';
   static const String arrowBigDownDash = 'arrow-big-down-dash';
   static const String arrowBigLeft = 'arrow-big-left';
@@ -588,6 +589,7 @@ abstract final class SupabaseIcons {
   static const String dome = 'dome';
   static const String donut = 'donut';
   static const String doorClosed = 'door-closed';
+  static const String doorClosedCog = 'door-closed-cog';
   static const String doorClosedLocked = 'door-closed-locked';
   static const String doorClosedPackage = 'door-closed-package';
   static const String doorOpen = 'door-open';
@@ -910,6 +912,7 @@ abstract final class SupabaseIcons {
   static const String joystick = 'joystick';
   static const String kanban = 'kanban';
   static const String kayak = 'kayak';
+  static const String kazakhTenge = 'kazakh-tenge';
   static const String key = 'key';
   static const String keyRound = 'key-round';
   static const String keySquare = 'key-square';
@@ -944,6 +947,7 @@ abstract final class SupabaseIcons {
   static const String layoutDashboard = 'layout-dashboard';
   static const String layoutFreeform = 'layout-freeform';
   static const String layoutGrid = 'layout-grid';
+  static const String layoutGridCircles = 'layout-grid-circles';
   static const String layoutList = 'layout-list';
   static const String layoutPanelLeft = 'layout-panel-left';
   static const String layoutPanelTop = 'layout-panel-top';
@@ -1286,6 +1290,7 @@ abstract final class SupabaseIcons {
   static const String powerOff = 'power-off';
   static const String presentation = 'presentation';
   static const String printer = 'printer';
+  static const String printer3d = 'printer-3d';
   static const String printerCheck = 'printer-check';
   static const String printerX = 'printer-x';
   static const String projector = 'projector';
@@ -1365,6 +1370,7 @@ abstract final class SupabaseIcons {
   static const String rows3 = 'rows-3';
   static const String rows4 = 'rows-4';
   static const String rss = 'rss';
+  static const String rugbyBall = 'rugby-ball';
   static const String ruler = 'ruler';
   static const String rulerDimensionLine = 'ruler-dimension-line';
   static const String russianRuble = 'russian-ruble';
@@ -1660,6 +1666,9 @@ abstract final class SupabaseIcons {
   static const String textAlignCenter = 'text-align-center';
   static const String textAlignEnd = 'text-align-end';
   static const String textAlignJustify = 'text-align-justify';
+  static const String textAlignJustifyCenter = 'text-align-justify-center';
+  static const String textAlignJustifyEnd = 'text-align-justify-end';
+  static const String textAlignJustifyStart = 'text-align-justify-start';
   static const String textAlignStart = 'text-align-start';
   static const String textCursor = 'text-cursor';
   static const String textCursorInput = 'text-cursor-input';
@@ -1841,6 +1850,7 @@ abstract final class SupabaseIcons {
   static const String wifiZero = 'wifi-zero';
   static const String wind = 'wind';
   static const String windArrowDown = 'wind-arrow-down';
+  static const String windArrowUp = 'wind-arrow-up';
   static const String wine = 'wine';
   static const String wineOff = 'wine-off';
   static const String workflow = 'workflow';
