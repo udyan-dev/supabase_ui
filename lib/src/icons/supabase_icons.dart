@@ -6,7 +6,7 @@
 // Contains the name of every Lucide icon. No SVG/asset data is bundled — these
 // strings are resolved to `.vec` assets app-side by `dart run supabase_ui:build_icons`.
 
-/// Strongly-typed names for every Lucide icon (1866 total).
+/// Strongly-typed names for every Lucide icon (1878 total).
 abstract final class SupabaseIcons {
   const SupabaseIcons._();
 
@@ -826,6 +826,7 @@ abstract final class SupabaseIcons {
   static const String grip = 'grip';
   static const String gripHorizontal = 'grip-horizontal';
   static const String gripVertical = 'grip-vertical';
+  static const String groceries = 'groceries';
   static const String group = 'group';
   static const String guitar = 'guitar';
   static const String ham = 'ham';
@@ -840,6 +841,7 @@ abstract final class SupabaseIcons {
   static const String handMetal = 'hand-metal';
   static const String handPlatter = 'hand-platter';
   static const String handbag = 'handbag';
+  static const String handleBottomRight = 'handle-bottom-right';
   static const String handshake = 'handshake';
   static const String hardDrive = 'hard-drive';
   static const String hardDriveDownload = 'hard-drive-download';
@@ -872,6 +874,7 @@ abstract final class SupabaseIcons {
   static const String helicopter = 'helicopter';
   static const String hexagon = 'hexagon';
   static const String highlighter = 'highlighter';
+  static const String hikingStick = 'hiking-stick';
   static const String hop = 'hop';
   static const String hopOff = 'hop-off';
   static const String hospital = 'hospital';
@@ -955,6 +958,7 @@ abstract final class SupabaseIcons {
   static const String leaf = 'leaf';
   static const String leafyGreen = 'leafy-green';
   static const String lectern = 'lectern';
+  static const String lens = 'lens';
   static const String lensConcave = 'lens-concave';
   static const String lensConvex = 'lens-convex';
   static const String letters = 'letters';
@@ -1018,6 +1022,7 @@ abstract final class SupabaseIcons {
   static const String mailBadge = 'mail-badge';
   static const String mailCheck = 'mail-check';
   static const String mailClock = 'mail-clock';
+  static const String mailDot = 'mail-dot';
   static const String mailMinus = 'mail-minus';
   static const String mailOpen = 'mail-open';
   static const String mailPen = 'mail-pen';
@@ -1248,6 +1253,7 @@ abstract final class SupabaseIcons {
   static const String phoneCall = 'phone-call';
   static const String phoneForwarded = 'phone-forwarded';
   static const String phoneIncoming = 'phone-incoming';
+  static const String phoneLog = 'phone-log';
   static const String phoneMissed = 'phone-missed';
   static const String phoneOff = 'phone-off';
   static const String phoneOutgoing = 'phone-outgoing';
@@ -1404,8 +1410,10 @@ abstract final class SupabaseIcons {
   static const String scissors = 'scissors';
   static const String scissorsLineDashed = 'scissors-line-dashed';
   static const String scooter = 'scooter';
+  static const String scratchBlocks = 'scratch-blocks';
   static const String screenShare = 'screen-share';
   static const String screenShareOff = 'screen-share-off';
+  static const String screw = 'screw';
   static const String scroll = 'scroll';
   static const String scrollText = 'scroll-text';
   static const String search = 'search';
@@ -1423,6 +1431,7 @@ abstract final class SupabaseIcons {
   static const String server = 'server';
   static const String serverCog = 'server-cog';
   static const String serverCrash = 'server-crash';
+  static const String serverNas = 'server-nas';
   static const String serverOff = 'server-off';
   static const String serverPlus = 'server-plus';
   static const String settings = 'settings';
@@ -1441,6 +1450,7 @@ abstract final class SupabaseIcons {
   static const String shieldCogCorner = 'shield-cog-corner';
   static const String shieldEllipsis = 'shield-ellipsis';
   static const String shieldHalf = 'shield-half';
+  static const String shieldHouse = 'shield-house';
   static const String shieldKeyhole = 'shield-keyhole';
   static const String shieldLock = 'shield-lock';
   static const String shieldMinus = 'shield-minus';
@@ -1780,6 +1790,7 @@ abstract final class SupabaseIcons {
   static const String userRoundPen = 'user-round-pen';
   static const String userRoundPlus = 'user-round-plus';
   static const String userRoundSearch = 'user-round-search';
+  static const String userRoundStar = 'user-round-star';
   static const String userRoundX = 'user-round-x';
   static const String userSearch = 'user-search';
   static const String userShield = 'user-shield';
@@ -1843,6 +1854,7 @@ abstract final class SupabaseIcons {
   static const String wifi = 'wifi';
   static const String wifiCog = 'wifi-cog';
   static const String wifiHigh = 'wifi-high';
+  static const String wifiLock = 'wifi-lock';
   static const String wifiLow = 'wifi-low';
   static const String wifiOff = 'wifi-off';
   static const String wifiPen = 'wifi-pen';
