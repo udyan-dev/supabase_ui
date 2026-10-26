@@ -6,7 +6,7 @@
 // Contains the name of every Lucide icon. No SVG/asset data is bundled — these
 // strings are resolved to `.vec` assets app-side by `dart run supabase_ui:build_icons`.
 
-/// Strongly-typed names for every Lucide icon (1897 total).
+/// Strongly-typed names for every Lucide icon (1903 total).
 abstract final class SupabaseIcons {
   const SupabaseIcons._();
 
@@ -250,6 +250,7 @@ abstract final class SupabaseIcons {
   static const String brain = 'brain';
   static const String brainCircuit = 'brain-circuit';
   static const String brainCog = 'brain-cog';
+  static const String brainOff = 'brain-off';
   static const String brickWall = 'brick-wall';
   static const String brickWallFire = 'brick-wall-fire';
   static const String brickWallShield = 'brick-wall-shield';
@@ -401,6 +402,10 @@ abstract final class SupabaseIcons {
   static const String circleChevronLeft = 'circle-chevron-left';
   static const String circleChevronRight = 'circle-chevron-right';
   static const String circleChevronUp = 'circle-chevron-up';
+  static const String circleChevronsDown = 'circle-chevrons-down';
+  static const String circleChevronsLeft = 'circle-chevrons-left';
+  static const String circleChevronsRight = 'circle-chevrons-right';
+  static const String circleChevronsUp = 'circle-chevrons-up';
   static const String circleDashed = 'circle-dashed';
   static const String circleDashedCheck = 'circle-dashed-check';
   static const String circleDivide = 'circle-divide';
@@ -828,6 +833,7 @@ abstract final class SupabaseIcons {
   static const String gpu = 'gpu';
   static const String graduationCap = 'graduation-cap';
   static const String grape = 'grape';
+  static const String graphHub = 'graph-hub';
   static const String graphStar = 'graph-star';
   static const String grid2x2 = 'grid-2x2';
   static const String grid2x2Check = 'grid-2x2-check';
