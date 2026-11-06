@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../../primitives/sb_interaction.dart';
+import '../../primitives/sb_shape.dart';
 import '../../primitives/sb_text.dart';
 import '../../theme/sb_theme_extensions.dart';
 import '../../tokens/sb_motion.dart';
@@ -34,6 +35,10 @@ class SbTextField extends StatefulWidget {
     this.focusNode,
     this.textAlign = TextAlign.start,
     this.autofocus = false,
+    this.dense = false,
+    this.borderRadius,
+    this.textInputAction,
+    this.bare = false,
   });
 
   final TextEditingController? controller;
@@ -52,6 +57,10 @@ class SbTextField extends StatefulWidget {
   final FocusNode? focusNode;
   final TextAlign textAlign;
   final bool autofocus;
+  final bool dense;
+  final BorderRadius? borderRadius;
+  final TextInputAction? textInputAction;
+  final bool bare;
 
   @override
   State<SbTextField> createState() => _SbTextFieldState();
@@ -124,6 +133,21 @@ class _SbTextFieldState extends State<SbTextField> {
     }
   }
 
+  double get _padY => widget.dense ? SbSpacing.s8 - 1 : SbSpacing.s12;
+
+  BorderRadius _radius(BuildContext context) {
+    final explicit = widget.borderRadius;
+    if (explicit != null) return explicit;
+    final line =
+        MediaQuery.textScalerOf(context).scale(SbTypography.body.fontSize!) *
+        SbTypography.body.height!;
+    return SbShape.of(
+      context,
+      size: 2 * (_padY + 1) + line,
+      fallback: SbRadius.all8,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final colors = context.sbColors;
@@ -143,9 +167,9 @@ class _SbTextFieldState extends State<SbTextField> {
         readOnly: !widget.enabled,
         obscureText: _isPassword && _obscured,
         keyboardType: _keyboardType,
-        textInputAction: _isMultiline
-            ? TextInputAction.newline
-            : TextInputAction.done,
+        textInputAction:
+            widget.textInputAction ??
+            (_isMultiline ? TextInputAction.newline : TextInputAction.done),
         maxLines: _isMultiline ? widget.maxLines : 1,
         minLines: _isMultiline ? widget.minLines : 1,
         style: SbTypography.body.copyWith(color: colors.textPrimary),
@@ -193,17 +217,19 @@ class _SbTextFieldState extends State<SbTextField> {
         ],
         AnimatedContainer(
           duration: SbMotion.fast,
-          decoration: BoxDecoration(
-            color: widget.enabled ? colors.surface : colors.surfaceActive,
-            borderRadius: SbRadius.all8,
-            border: Border.all(
-              color: borderColor,
-              width: _focused || hasError ? 1.5 : 1,
-            ),
-          ),
-          padding: const EdgeInsets.symmetric(
+          decoration: widget.bare
+              ? null
+              : BoxDecoration(
+                  color: widget.enabled ? colors.surface : colors.surfaceActive,
+                  borderRadius: _radius(context),
+                  border: Border.all(
+                    color: borderColor,
+                    width: _focused || hasError ? 1.5 : 1,
+                  ),
+                ),
+          padding: EdgeInsets.symmetric(
             horizontal: SbSpacing.s12,
-            vertical: SbSpacing.s12,
+            vertical: _padY,
           ),
           child: Row(
             children: <Widget>[

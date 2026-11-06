@@ -1,10 +1,6 @@
 import 'package:flutter/widgets.dart';
 
 import '../../../supabase_ui.dart';
-import '../../theme/sb_theme_extensions.dart';
-import '../../tokens/sb_radius.dart';
-import '../../tokens/sb_spacing.dart';
-import '../../tokens/sb_typography.dart';
 
 enum SbButtonVariant { primary, secondary, outline, ghost, destructive }
 

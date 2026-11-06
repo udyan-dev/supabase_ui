@@ -3,7 +3,6 @@ import 'package:flutter/widgets.dart';
 import '../../primitives/sb_interaction.dart';
 import '../../primitives/sb_surface.dart';
 import '../../primitives/sb_text.dart';
-import '../../theme/sb_theme_extensions.dart';
 import '../../tokens/sb_spacing.dart';
 import '../../utils/context_extensions.dart';
 
@@ -27,23 +26,9 @@ class SbBanner extends StatelessWidget {
   final Widget? action;
   final VoidCallback? onDismiss;
 
-  Color _accent(SbColorScheme c) {
-    switch (variant) {
-      case SbBannerVariant.neutral:
-        return c.textSecondary;
-      case SbBannerVariant.brand:
-        return c.primary;
-      case SbBannerVariant.warning:
-        return c.warning;
-      case SbBannerVariant.destructive:
-        return c.destructive;
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     final colors = context.sbColors;
-    final accent = _accent(colors);
 
     return SbSurface(
       color: colors.surfaceActive,

@@ -1,3 +1,4 @@
+import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 
 import '../../primitives/sb_interaction.dart';
@@ -19,6 +20,10 @@ class SbSearchField extends StatefulWidget {
     this.enabled = true,
     this.prefix,
     this.suffix,
+    this.dense = false,
+    this.bare = false,
+    this.borderRadius,
+    this.textInputAction,
   });
 
   final TextEditingController? controller;
@@ -29,6 +34,10 @@ class SbSearchField extends StatefulWidget {
   final bool enabled;
   final Widget? prefix;
   final Widget? suffix;
+  final bool dense;
+  final bool bare;
+  final BorderRadius? borderRadius;
+  final TextInputAction? textInputAction;
 
   @override
   State<SbSearchField> createState() => _SbSearchFieldState();
@@ -64,6 +73,10 @@ class _SbSearchFieldState extends State<SbSearchField> {
     final hasText = _controller.text.isNotEmpty;
 
     return SbTextField(
+      dense: widget.dense,
+      bare: widget.bare,
+      borderRadius: widget.borderRadius,
+      textInputAction: widget.textInputAction,
       controller: _controller,
       hint: widget.hint,
       enabled: widget.enabled,

@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 
 import '../../primitives/sb_interaction.dart';
+import '../../primitives/sb_shape.dart';
 import '../../primitives/sb_surface.dart';
 import '../../tokens/sb_motion.dart';
 import '../../tokens/sb_spacing.dart';
@@ -25,6 +26,7 @@ class SbButton extends StatelessWidget {
     this.loading = false,
     this.fullWidth = false,
     this.isExpanded = false,
+    this.borderRadius,
   });
 
   final String label;
@@ -39,12 +41,16 @@ class SbButton extends StatelessWidget {
   final bool loading;
   final bool fullWidth;
   final bool isExpanded;
+  final BorderRadius? borderRadius;
 
   bool get _enabled => onPressed != null && !loading;
 
   @override
   Widget build(BuildContext context) {
     final colors = context.sbColors;
+    final radius =
+        borderRadius ??
+        SbShape.of(context, size: size.minHeight, fallback: size.radius);
 
     return SbInteraction(
       enabled: _enabled,
@@ -78,7 +84,7 @@ class SbButton extends StatelessWidget {
         final button = SbSurface(
           color: visual.background,
           borderColor: visual.borderColor,
-          borderRadius: size.radius,
+          borderRadius: radius,
           padding: size.padding,
           constraints: BoxConstraints(minHeight: size.minHeight),
           child: Center(widthFactor: 1, heightFactor: 1, child: content),

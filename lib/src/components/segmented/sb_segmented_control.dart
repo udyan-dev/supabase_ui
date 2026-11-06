@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 
 import '../../primitives/sb_interaction.dart';
+import '../../primitives/sb_shape.dart';
 import '../../primitives/sb_surface.dart';
 import '../../primitives/sb_text.dart';
 import '../../theme/sb_theme_extensions.dart';
@@ -23,26 +24,33 @@ class SbSegmentedControl extends StatelessWidget {
   final int selectedIndex;
   final ValueChanged<int>? onChanged;
 
+  static const double _track = 2;
+
   @override
   Widget build(BuildContext context) {
     final colors = context.sbColors;
+    final radius = SbShape.radiusOf(context, fallback: SbRadius.r8.x);
     return SbSurface(
       color: colors.surfaceActive,
-      borderRadius: SbRadius.all8,
-      padding: const EdgeInsets.all(2),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          for (int i = 0; i < segments.length; i++)
-            Expanded(
-              child: _Segment(
-                label: segments[i],
-                selected: i == selectedIndex,
-                enabled: onChanged != null,
-                onTap: () => onChanged?.call(i),
+      borderRadius: BorderRadius.all(Radius.circular(radius)),
+      padding: const EdgeInsets.all(_track),
+      child: SbShape(
+        radius: radius,
+        inset: _track,
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            for (int i = 0; i < segments.length; i++)
+              Expanded(
+                child: _Segment(
+                  label: segments[i],
+                  selected: i == selectedIndex,
+                  enabled: onChanged != null,
+                  onTap: () => onChanged?.call(i),
+                ),
               ),
-            ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -78,7 +86,7 @@ class _Segment extends StatelessWidget {
           ),
           decoration: BoxDecoration(
             color: selected ? colors.surface : null,
-            borderRadius: SbRadius.all6,
+            borderRadius: SbShape.of(context, fallback: SbRadius.all6),
           ),
           child: SbText(
             label,

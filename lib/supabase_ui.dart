@@ -28,6 +28,7 @@ export 'src/primitives/sb_text.dart';
 export 'src/primitives/sb_box.dart';
 export 'src/primitives/sb_surface.dart';
 export 'src/primitives/sb_interaction.dart';
+export 'src/primitives/sb_shape.dart';
 
 // Components.
 export 'src/components/button/sb_button.dart';

@@ -16,7 +16,7 @@ const SbColorScheme sbLightColors = SbColorScheme(
   primary: SbColors.brand,
   primaryHover: SbColors.brandHoverLight,
   primaryActive: SbColors.brandActiveLight,
-  onPrimary: SbColors.fgDark, // dark text on light brand green
+  onPrimary: SbColors.fgLight,
   warning: SbColors.warningLight,
   destructive: SbColors.destructive,
   onSemantic: SbColors.white,
