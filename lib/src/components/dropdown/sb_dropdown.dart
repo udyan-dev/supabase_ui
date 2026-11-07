@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:flutter/widgets.dart';
 
 import '../../primitives/sb_interaction.dart';
@@ -139,7 +141,11 @@ class _SbMenuRoute<T> extends PopupRoute<T> {
     Animation<double> secondaryAnimation,
   ) {
     return CustomSingleChildLayout(
-      delegate: _MenuPositionDelegate(position: position, offset: offset),
+      delegate: _MenuPositionDelegate(
+        position: position,
+        offset: offset,
+        safe: MediaQuery.paddingOf(context),
+      ),
       child: _MenuContent<T>(
         items: items,
         menuWidth: menuWidth,
@@ -175,10 +181,17 @@ class _SbMenuRoute<T> extends PopupRoute<T> {
 // ---------------------------------------------------------------------------
 
 class _MenuPositionDelegate extends SingleChildLayoutDelegate {
-  _MenuPositionDelegate({required this.position, required this.offset});
+  _MenuPositionDelegate({
+    required this.position,
+    required this.offset,
+    required this.safe,
+  });
 
   final RelativeRect position;
   final Offset offset;
+
+  /// System bars and cutouts the menu stays clear of.
+  final EdgeInsets safe;
 
   static const double _margin = 8;
 
@@ -186,8 +199,8 @@ class _MenuPositionDelegate extends SingleChildLayoutDelegate {
   BoxConstraints getConstraintsForChild(BoxConstraints constraints) {
     return BoxConstraints.loose(
       Size(
-        constraints.maxWidth - _margin * 2,
-        constraints.maxHeight - _margin * 2,
+        math.max(0, constraints.maxWidth - safe.horizontal - _margin * 2),
+        math.max(0, constraints.maxHeight - safe.vertical - _margin * 2),
       ),
     );
   }
@@ -200,24 +213,27 @@ class _MenuPositionDelegate extends SingleChildLayoutDelegate {
 
     // x: align to button left edge, clamp so menu stays on-screen
     double x = buttonLeft + offset.dx;
-    if (x + childSize.width > size.width - _margin) {
-      x = size.width - childSize.width - _margin;
-    }
-    if (x < _margin) x = _margin;
+    final left = safe.left + _margin;
+    final right = size.width - safe.right - _margin;
+    if (x + childSize.width > right) x = right - childSize.width;
+    if (x < left) x = left;
 
     // y: prefer below button; flip above when not enough space below
+    final top = safe.top + _margin;
+    final bottom = size.height - safe.bottom - _margin;
     double y = buttonBottom + offset.dy;
-    if (y + childSize.height > size.height - _margin) {
+    if (y + childSize.height > bottom) {
       y = buttonTop - childSize.height - offset.dy;
     }
-    if (y < _margin) y = _margin;
+    if (y + childSize.height > bottom) y = bottom - childSize.height;
+    if (y < top) y = top;
 
     return Offset(x, y);
   }
 
   @override
   bool shouldRelayout(_MenuPositionDelegate old) =>
-      position != old.position || offset != old.offset;
+      position != old.position || offset != old.offset || safe != old.safe;
 }
 
 // ---------------------------------------------------------------------------

@@ -55,10 +55,12 @@ class _SbModalRoute<T> extends PopupRoute<T> {
     Animation<double> animation,
     Animation<double> secondaryAnimation,
   ) {
-    return Center(
-      child: Padding(
-        padding: const EdgeInsets.all(SbSpacing.s24),
-        child: Builder(builder: builder),
+    return SafeArea(
+      child: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(SbSpacing.s24),
+          child: Builder(builder: builder),
+        ),
       ),
     );
   }
