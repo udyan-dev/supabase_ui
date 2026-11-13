@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import 'sb_dark_theme.dart';
 import 'sb_light_theme.dart';

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 /// The styled-container primitive: the one place a fill, border, radius,
 /// shadow, and padding are composed. Every visual container in the system is
