@@ -6,7 +6,7 @@
 // Contains the name of every Lucide icon. No SVG/asset data is bundled — these
 // strings are resolved to `.vec` assets app-side by `dart run supabase_ui:build_icons`.
 
-/// Strongly-typed names for every Lucide icon (2046 total).
+/// Strongly-typed names for every Lucide icon (2076 total).
 abstract final class SupabaseIcons {
   const SupabaseIcons._();
 
@@ -106,8 +106,17 @@ abstract final class SupabaseIcons {
   static const String arrowUpToLine = 'arrow-up-to-line';
   static const String arrowUpWideNarrow = 'arrow-up-wide-narrow';
   static const String arrowUpZA = 'arrow-up-z-a';
+  static const String arrowsFromAxisDashedHorizontal = 'arrows-from-axis-dashed-horizontal';
+  static const String arrowsFromAxisDashedVertical = 'arrows-from-axis-dashed-vertical';
+  static const String arrowsFromAxisHorizontal = 'arrows-from-axis-horizontal';
+  static const String arrowsFromAxisVertical = 'arrows-from-axis-vertical';
+  static const String arrowsToAxisDashedHorizontal = 'arrows-to-axis-dashed-horizontal';
+  static const String arrowsToAxisDashedVertical = 'arrows-to-axis-dashed-vertical';
+  static const String arrowsToAxisHorizontal = 'arrows-to-axis-horizontal';
+  static const String arrowsToAxisVertical = 'arrows-to-axis-vertical';
   static const String arrowsUpFromLine = 'arrows-up-from-line';
   static const String asterisk = 'asterisk';
+  static const String asterism = 'asterism';
   static const String astroid = 'astroid';
   static const String atSign = 'at-sign';
   static const String atom = 'atom';
@@ -318,6 +327,7 @@ abstract final class SupabaseIcons {
   static const String candyOff = 'candy-off';
   static const String cannabis = 'cannabis';
   static const String cannabisOff = 'cannabis-off';
+  static const String cap = 'cap';
   static const String captions = 'captions';
   static const String captionsOff = 'captions-off';
   static const String car = 'car';
@@ -326,6 +336,14 @@ abstract final class SupabaseIcons {
   static const String carTaxiFront = 'car-taxi-front';
   static const String caravan = 'caravan';
   static const String cardSim = 'card-sim';
+  static const String caretsFromAxisDashedHorizontal = 'carets-from-axis-dashed-horizontal';
+  static const String caretsFromAxisDashedVertical = 'carets-from-axis-dashed-vertical';
+  static const String caretsFromAxisHorizontal = 'carets-from-axis-horizontal';
+  static const String caretsFromAxisVertical = 'carets-from-axis-vertical';
+  static const String caretsToAxisDashedHorizontal = 'carets-to-axis-dashed-horizontal';
+  static const String caretsToAxisDashedVertical = 'carets-to-axis-dashed-vertical';
+  static const String caretsToAxisHorizontal = 'carets-to-axis-horizontal';
+  static const String caretsToAxisVertical = 'carets-to-axis-vertical';
   static const String carrot = 'carrot';
   static const String carton = 'carton';
   static const String cartonOff = 'carton-off';
@@ -385,11 +403,19 @@ abstract final class SupabaseIcons {
   static const String chevronUp = 'chevron-up';
   static const String chevronsDown = 'chevrons-down';
   static const String chevronsDownUp = 'chevrons-down-up';
+  static const String chevronsFromAxisDashedHorizontal = 'chevrons-from-axis-dashed-horizontal';
+  static const String chevronsFromAxisDashedVertical = 'chevrons-from-axis-dashed-vertical';
+  static const String chevronsFromAxisHorizontal = 'chevrons-from-axis-horizontal';
+  static const String chevronsFromAxisVertical = 'chevrons-from-axis-vertical';
   static const String chevronsLeft = 'chevrons-left';
   static const String chevronsLeftRight = 'chevrons-left-right';
   static const String chevronsLeftRightEllipsis = 'chevrons-left-right-ellipsis';
   static const String chevronsRight = 'chevrons-right';
   static const String chevronsRightLeft = 'chevrons-right-left';
+  static const String chevronsToAxisDashedHorizontal = 'chevrons-to-axis-dashed-horizontal';
+  static const String chevronsToAxisDashedVertical = 'chevrons-to-axis-dashed-vertical';
+  static const String chevronsToAxisHorizontal = 'chevrons-to-axis-horizontal';
+  static const String chevronsToAxisVertical = 'chevrons-to-axis-vertical';
   static const String chevronsUp = 'chevrons-up';
   static const String chevronsUpDown = 'chevrons-up-down';
   static const String church = 'church';
@@ -681,6 +707,7 @@ abstract final class SupabaseIcons {
   static const String ethernetPort = 'ethernet-port';
   static const String euro = 'euro';
   static const String evCharger = 'ev-charger';
+  static const String exclamationMark = 'exclamation-mark';
   static const String expand = 'expand';
   static const String externalLink = 'external-link';
   static const String eye = 'eye';
@@ -780,8 +807,6 @@ abstract final class SupabaseIcons {
   static const String flower = 'flower';
   static const String flower2 = 'flower-2';
   static const String focus = 'focus';
-  static const String foldHorizontal = 'fold-horizontal';
-  static const String foldVertical = 'fold-vertical';
   static const String folder = 'folder';
   static const String folderArchive = 'folder-archive';
   static const String folderBookmark = 'folder-bookmark';
@@ -877,6 +902,7 @@ abstract final class SupabaseIcons {
   static const String graduationCap = 'graduation-cap';
   static const String grape = 'grape';
   static const String graphHub = 'graph-hub';
+  static const String graphRing = 'graph-ring';
   static const String graphStar = 'graph-star';
   static const String grid2x2 = 'grid-2x2';
   static const String grid2x2Check = 'grid-2x2-check';
@@ -1017,6 +1043,7 @@ abstract final class SupabaseIcons {
   static const String layoutFreeform = 'layout-freeform';
   static const String layoutGrid = 'layout-grid';
   static const String layoutGridCircles = 'layout-grid-circles';
+  static const String layoutGridPlus = 'layout-grid-plus';
   static const String layoutList = 'layout-list';
   static const String layoutPanelLeft = 'layout-panel-left';
   static const String layoutPanelTop = 'layout-panel-top';
@@ -1237,6 +1264,7 @@ abstract final class SupabaseIcons {
   static const String moped = 'moped';
   static const String mosque = 'mosque';
   static const String motorbike = 'motorbike';
+  static const String moundShovel = 'mound-shovel';
   static const String mountain = 'mountain';
   static const String mountainSnow = 'mountain-snow';
   static const String mouse = 'mouse';
@@ -1272,6 +1300,7 @@ abstract final class SupabaseIcons {
   static const String network = 'network';
   static const String newspaper = 'newspaper';
   static const String nfc = 'nfc';
+  static const String nigerianNaira = 'nigerian-naira';
   static const String nonBinary = 'non-binary';
   static const String notebook = 'notebook';
   static const String notebookDot = 'notebook-dot';
@@ -1410,6 +1439,7 @@ abstract final class SupabaseIcons {
   static const String puzzle = 'puzzle';
   static const String pyramid = 'pyramid';
   static const String qrCode = 'qr-code';
+  static const String questionMark = 'question-mark';
   static const String quote = 'quote';
   static const String rabbit = 'rabbit';
   static const String radar = 'radar';
@@ -1476,6 +1506,7 @@ abstract final class SupabaseIcons {
   static const String rotateCwFadingClock = 'rotate-cw-fading-clock';
   static const String rotateCwSquare = 'rotate-cw-square';
   static const String route = 'route';
+  static const String routeArrowRight = 'route-arrow-right';
   static const String routeOff = 'route-off';
   static const String router = 'router';
   static const String rows2 = 'rows-2';
@@ -1654,10 +1685,12 @@ abstract final class SupabaseIcons {
   static const String squareArrowUpRightEnter = 'square-arrow-up-right-enter';
   static const String squareArrowUpRightExit = 'square-arrow-up-right-exit';
   static const String squareAsterisk = 'square-asterisk';
+  static const String squareAxisDashedHorizontal = 'square-axis-dashed-horizontal';
+  static const String squareAxisDashedVertical = 'square-axis-dashed-vertical';
+  static const String squareAxisHorizontal = 'square-axis-horizontal';
+  static const String squareAxisVertical = 'square-axis-vertical';
   static const String squareBookmark = 'square-bookmark';
   static const String squareBottomDashedScissors = 'square-bottom-dashed-scissors';
-  static const String squareCenterlineDashedHorizontal = 'square-centerline-dashed-horizontal';
-  static const String squareCenterlineDashedVertical = 'square-centerline-dashed-vertical';
   static const String squareChartGantt = 'square-chart-gantt';
   static const String squareCheck = 'square-check';
   static const String squareCheckBig = 'square-check-big';
@@ -1845,6 +1878,7 @@ abstract final class SupabaseIcons {
   static const String textCursor = 'text-cursor';
   static const String textCursorInput = 'text-cursor-input';
   static const String textInitial = 'text-initial';
+  static const String textPen = 'text-pen';
   static const String textQuote = 'text-quote';
   static const String textSearch = 'text-search';
   static const String textWrap = 'text-wrap';
@@ -1904,8 +1938,6 @@ abstract final class SupabaseIcons {
   static const String triangleDashed = 'triangle-dashed';
   static const String triangleExclamationPoint = 'triangle-exclamation-point';
   static const String triangleRight = 'triangle-right';
-  static const String trianglesCenterlineDashedHorizontal = 'triangles-centerline-dashed-horizontal';
-  static const String trianglesCenterlineDashedVertical = 'triangles-centerline-dashed-vertical';
   static const String trophy = 'trophy';
   static const String truck = 'truck';
   static const String truckElectric = 'truck-electric';
@@ -1924,8 +1956,6 @@ abstract final class SupabaseIcons {
   static const String undo = 'undo';
   static const String undo2 = 'undo-2';
   static const String undoDot = 'undo-dot';
-  static const String unfoldHorizontal = 'unfold-horizontal';
-  static const String unfoldVertical = 'unfold-vertical';
   static const String ungroup = 'ungroup';
   static const String university = 'university';
   static const String unlink = 'unlink';
