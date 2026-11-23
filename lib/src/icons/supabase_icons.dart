@@ -6,7 +6,7 @@
 // Contains the name of every Lucide icon. No SVG/asset data is bundled — these
 // strings are resolved to `.vec` assets app-side by `dart run supabase_ui:build_icons`.
 
-/// Strongly-typed names for every Lucide icon (2076 total).
+/// Strongly-typed names for every Lucide icon (2104 total).
 abstract final class SupabaseIcons {
   const SupabaseIcons._();
 
@@ -57,6 +57,7 @@ abstract final class SupabaseIcons {
   static const String aperture = 'aperture';
   static const String appWindow = 'app-window';
   static const String appWindowMac = 'app-window-mac';
+  static const String appWindowPlus = 'app-window-plus';
   static const String apple = 'apple';
   static const String archive = 'archive';
   static const String archiveArrowDown = 'archive-arrow-down';
@@ -250,11 +251,16 @@ abstract final class SupabaseIcons {
   static const String bookmarkX = 'bookmark-x';
   static const String boomBox = 'boom-box';
   static const String bot = 'bot';
+  static const String botCheck = 'bot-check';
   static const String botMessageSquare = 'bot-message-square';
+  static const String botMinus = 'bot-minus';
   static const String botOff = 'bot-off';
+  static const String botPlus = 'bot-plus';
+  static const String botX = 'bot-x';
   static const String bottleWine = 'bottle-wine';
   static const String bowArrow = 'bow-arrow';
   static const String box = 'box';
+  static const String boxDashed = 'box-dashed';
   static const String boxes = 'boxes';
   static const String boxesLinked = 'boxes-linked';
   static const String braces = 'braces';
@@ -418,9 +424,11 @@ abstract final class SupabaseIcons {
   static const String chevronsToAxisVertical = 'chevrons-to-axis-vertical';
   static const String chevronsUp = 'chevrons-up';
   static const String chevronsUpDown = 'chevrons-up-down';
+  static const String chocolateBar = 'chocolate-bar';
   static const String church = 'church';
   static const String cigarette = 'cigarette';
   static const String cigaretteOff = 'cigarette-off';
+  static const String cinema = 'cinema';
   static const String circle = 'circle';
   static const String circleArrowDown = 'circle-arrow-down';
   static const String circleArrowDownLeftExit = 'circle-arrow-down-left-exit';
@@ -430,6 +438,7 @@ abstract final class SupabaseIcons {
   static const String circleArrowUp = 'circle-arrow-up';
   static const String circleArrowUpLeftExit = 'circle-arrow-up-left-exit';
   static const String circleArrowUpRightExit = 'circle-arrow-up-right-exit';
+  static const String circleBounce = 'circle-bounce';
   static const String circleCheck = 'circle-check';
   static const String circleCheckBig = 'circle-check-big';
   static const String circleChevronDown = 'circle-chevron-down';
@@ -486,6 +495,7 @@ abstract final class SupabaseIcons {
   static const String circleOff = 'circle-off';
   static const String circlePause = 'circle-pause';
   static const String circlePercent = 'circle-percent';
+  static const String circlePersonArmsSpread = 'circle-person-arms-spread';
   static const String circlePile = 'circle-pile';
   static const String circlePlay = 'circle-play';
   static const String circlePlus = 'circle-plus';
@@ -495,6 +505,7 @@ abstract final class SupabaseIcons {
   static const String circleSlash = 'circle-slash';
   static const String circleSlash2 = 'circle-slash-2';
   static const String circleSmall = 'circle-small';
+  static const String circleSpeedLines = 'circle-speed-lines';
   static const String circleStar = 'circle-star';
   static const String circleStop = 'circle-stop';
   static const String circleUser = 'circle-user';
@@ -638,6 +649,7 @@ abstract final class SupabaseIcons {
   static const String dessert = 'dessert';
   static const String diagramFlowHorizontal = 'diagram-flow-horizontal';
   static const String diagramFlowVertical = 'diagram-flow-vertical';
+  static const String diagramSankey = 'diagram-sankey';
   static const String diameter = 'diameter';
   static const String diamond = 'diamond';
   static const String diamondMinus = 'diamond-minus';
@@ -660,6 +672,7 @@ abstract final class SupabaseIcons {
   static const String dnaOff = 'dna-off';
   static const String dock = 'dock';
   static const String dog = 'dog';
+  static const String doghouse = 'doghouse';
   static const String dollarSign = 'dollar-sign';
   static const String dome = 'dome';
   static const String donut = 'donut';
@@ -825,11 +838,13 @@ abstract final class SupabaseIcons {
   static const String folderKey = 'folder-key';
   static const String folderLock = 'folder-lock';
   static const String folderMinus = 'folder-minus';
+  static const String folderNetwork = 'folder-network';
   static const String folderOpen = 'folder-open';
   static const String folderOpenDot = 'folder-open-dot';
   static const String folderOutput = 'folder-output';
   static const String folderPen = 'folder-pen';
   static const String folderPlus = 'folder-plus';
+  static const String folderPlusCorner = 'folder-plus-corner';
   static const String folderRoot = 'folder-root';
   static const String folderSearch = 'folder-search';
   static const String folderSearch2 = 'folder-search-2';
@@ -902,6 +917,7 @@ abstract final class SupabaseIcons {
   static const String graduationCap = 'graduation-cap';
   static const String grape = 'grape';
   static const String graphHub = 'graph-hub';
+  static const String graphPath = 'graph-path';
   static const String graphRing = 'graph-ring';
   static const String graphStar = 'graph-star';
   static const String grid2x2 = 'grid-2x2';
@@ -930,6 +946,7 @@ abstract final class SupabaseIcons {
   static const String handHelping = 'hand-helping';
   static const String handMetal = 'hand-metal';
   static const String handPlatter = 'hand-platter';
+  static const String handTruck = 'hand-truck';
   static const String handbag = 'handbag';
   static const String handleBottomRight = 'handle-bottom-right';
   static const String handshake = 'handshake';
@@ -965,6 +982,7 @@ abstract final class SupabaseIcons {
   static const String highlighter = 'highlighter';
   static const String hikingStick = 'hiking-stick';
   static const String hockeyStick = 'hockey-stick';
+  static const String hole = 'hole';
   static const String hop = 'hop';
   static const String hopOff = 'hop-off';
   static const String hospital = 'hospital';
@@ -973,6 +991,8 @@ abstract final class SupabaseIcons {
   static const String hourglass = 'hourglass';
   static const String hourglassCog = 'hourglass-cog';
   static const String house = 'house';
+  static const String houseArrowLeft = 'house-arrow-left';
+  static const String houseArrowRight = 'house-arrow-right';
   static const String houseCog = 'house-cog';
   static const String houseHeart = 'house-heart';
   static const String housePlug = 'house-plug';
@@ -1002,6 +1022,7 @@ abstract final class SupabaseIcons {
   static const String iterationCcw = 'iteration-ccw';
   static const String iterationCw = 'iteration-cw';
   static const String ivBag = 'iv-bag';
+  static const String jacket = 'jacket';
   static const String japaneseYen = 'japanese-yen';
   static const String joystick = 'joystick';
   static const String kanban = 'kanban';
@@ -1324,6 +1345,7 @@ abstract final class SupabaseIcons {
   static const String origami = 'origami';
   static const String package = 'package';
   static const String package2 = 'package-2';
+  static const String packageArrowBendUpLeft = 'package-arrow-bend-up-left';
   static const String packageCheck = 'package-check';
   static const String packageMinus = 'package-minus';
   static const String packageOpen = 'package-open';
@@ -1333,6 +1355,7 @@ abstract final class SupabaseIcons {
   static const String packageSearch = 'package-search';
   static const String packageX = 'package-x';
   static const String paintBucket = 'paint-bucket';
+  static const String paintGun = 'paint-gun';
   static const String paintRoller = 'paint-roller';
   static const String paintbrush = 'paintbrush';
   static const String paintbrushVertical = 'paintbrush-vertical';
@@ -1467,6 +1490,7 @@ abstract final class SupabaseIcons {
   static const String rectangleEllipsis = 'rectangle-ellipsis';
   static const String rectangleGoggles = 'rectangle-goggles';
   static const String rectangleHorizontal = 'rectangle-horizontal';
+  static const String rectangleLandscapePlay = 'rectangle-landscape-play';
   static const String rectangleVertical = 'rectangle-vertical';
   static const String recycle = 'recycle';
   static const String redo = 'redo';
@@ -1768,6 +1792,7 @@ abstract final class SupabaseIcons {
   static const String squarePilcrow = 'square-pilcrow';
   static const String squarePlay = 'square-play';
   static const String squarePlus = 'square-plus';
+  static const String squarePlusCorner = 'square-plus-corner';
   static const String squarePower = 'square-power';
   static const String squareRadical = 'square-radical';
   static const String squareRoundCorner = 'square-round-corner';
@@ -1823,6 +1848,7 @@ abstract final class SupabaseIcons {
   static const String strokeLineJoinBevel = 'stroke-line-join-bevel';
   static const String strokeLineJoinMiter = 'stroke-line-join-miter';
   static const String strokeLineJoinRound = 'stroke-line-join-round';
+  static const String strokeWidth = 'stroke-width';
   static const String subscript = 'subscript';
   static const String summary = 'summary';
   static const String sun = 'sun';
@@ -1977,6 +2003,7 @@ abstract final class SupabaseIcons {
   static const String userRound = 'user-round';
   static const String userRoundArrowLeft = 'user-round-arrow-left';
   static const String userRoundCheck = 'user-round-check';
+  static const String userRoundClock = 'user-round-clock';
   static const String userRoundCog = 'user-round-cog';
   static const String userRoundExclamationPoint = 'user-round-exclamation-point';
   static const String userRoundGroup = 'user-round-group';
@@ -2031,6 +2058,7 @@ abstract final class SupabaseIcons {
   static const String wand = 'wand';
   static const String wandSparkles = 'wand-sparkles';
   static const String warehouse = 'warehouse';
+  static const String warehouseWaves = 'warehouse-waves';
   static const String washingMachine = 'washing-machine';
   static const String watch = 'watch';
   static const String wavesArrowDown = 'waves-arrow-down';
